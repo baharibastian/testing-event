@@ -71,6 +71,7 @@
         </div>
     </nav>
     
+    @if(\Illuminate\Support\Facades\Auth::user() != null)
     <section>
         <!-- Left Sidebar -->
         <aside id="leftsidebar" class="sidebar">
@@ -80,8 +81,10 @@
                     <img src="{{ url('admin/images/user.png') }}" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
-                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ \Illuminate\Support\Facades\Auth::user()->name }}</div>
-                    <div class="email">{{ \Illuminate\Support\Facades\Auth::user()->email }}</div>
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ $user }}
+                    </div>
+                    
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
@@ -90,31 +93,32 @@
                     </div>
                 </div>
             </div>
-            <div class="menu">
-                <ul class="list">
-                    <li class="header">MAIN NAVIGATION</li>
-                    <li class="active">
-                        <a href="{{ url('user') }}">
-                            <span>Home</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ url('user/event') }}">
-                            <span>Events</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ url('user/ticket') }}">
-                            <span>Tickets</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ url('user/location') }}">
-                            <span>Locations</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            
+                <div class="menu">
+                    <ul class="list">
+                        <li class="header">MAIN NAVIGATION</li>
+                        <li class="active">
+                            <a href="{{ url('user') }}">
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('user/event') }}">
+                                <span>Events</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('user/ticket') }}">
+                                <span>Tickets</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('user/location') }}">
+                                <span>Locations</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             <div class="legal">
                 <div class="copyright">
                     &copy; 2016 - 2017 <a href="javascript:void(0);">EVENT MANAGEMENT SYSTEM</a>.
@@ -125,8 +129,14 @@
             </div>
         </aside>
     </section>
-
-    <section class="content">
+    @endif
+    
+    <?php
+    $style=''; 
+    if(\Illuminate\Support\Facades\Auth::user() == null) 
+        $style = 'margin:100px 15px 0 35px';
+    ?>
+    <section class="content" style="{{ $style }}">
         <div class="container-fluid">
             <!-- Changelogs -->
             <div class="block-header">

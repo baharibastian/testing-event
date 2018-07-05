@@ -64,9 +64,15 @@ class EventController extends Controller
                 ->select('locations.location_name','events.*')
                 ->where('events.event_id', $id)
                 ->first();
+
+        $user = Auth::id();
+        if (empty($user)) $user = 'User';
+        else $user = Auth::user()->name;
+
         return view('events.detail')
             ->with('event', $event)
-            ->with('ticket', $ticket);
+            ->with('ticket', $ticket)
+            ->with('user', $user);
     }
 
     public function update(Request $request, $id)

@@ -52,6 +52,8 @@ Route::group(['prefix' => 'user'], function() {
 	});
 });
 
+Route::get('user/test','EventController@test');
+
 Route::get('user/event/detail/{id}','EventController@show');
 
 Route::get('/home', 'HomeController@index')->name('home');
