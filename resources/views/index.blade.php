@@ -212,9 +212,10 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <?php $i=1; ?>
                                     @foreach($events as $data)
                                         <tr>
-                                            <th scope="row">1</th>
+                                            <th scope="row">{{ $i }}</th>
                                             <td>{{ $data->event_name }}</td>
                                             <td>{{ $data->event_description }}</td>
                                             <td>{{ $data->event_start_date }}</td>
@@ -228,6 +229,7 @@
                                                 </form>
                                             </td>
                                         </tr>
+                                        <?php $i++; ?>
                                     @endforeach
                                     </tbody>
                                 </table>

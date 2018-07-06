@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Form Examples | Bootstrap Based Admin Template - Material Design</title>
+    <title>Locations - Event Management System</title>
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
@@ -69,7 +69,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="../../index.html">ADMINBSB - MATERIAL DESIGN</a>
+                <a class="navbar-brand" href="{{ url('user') }}">EVENT MANAGEMENT SYSTEM</a>
             </div>
         </div>
     </nav>

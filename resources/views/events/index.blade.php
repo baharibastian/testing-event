@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Normal Tables | Bootstrap Based Admin Template - Material Design</title>
+    <title>Events - Event Management System</title>
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
@@ -66,7 +66,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="../../index.html">ADMINBSB - MATERIAL DESIGN</a>
+                <a class="navbar-brand" href="{{ url('user') }}">EVENT MANAGEMENT SYSTEM</a>
             </div>
         </div>
     </nav>
@@ -153,9 +153,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <?php $i = 1 ?>
                                 @foreach($events as $data)
                                     <tr>
-                                        <th scope="row">1</th>
+                                        <th scope="row">{{ $i }}</th>
                                         <td>{{ $data->event_name }}</td>
                                         <td>{{ $data->event_description }}</td>
                                         <td>{{ $data->event_start_date }}</td>
@@ -164,6 +165,7 @@
                                             <a href="{{ url('user/event/edit', $data->event_id) }}" class="btn btn-success"><i class="material-icons">mode_edit</i></a>
                                         </td>
                                     </tr>
+                                    <?php $i++ ?>
                                 @endforeach
                                 </tbody>
                             </table>
