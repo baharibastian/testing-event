@@ -18,7 +18,7 @@ Route::get('/', function() {
 	if (Auth::check()) {
 		return redirect('/user');
 	} else {
-		redirect('login');
+		return redirect('/login');;
 	}
 });
 
